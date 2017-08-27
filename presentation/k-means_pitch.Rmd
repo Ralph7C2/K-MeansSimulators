@@ -1,0 +1,41 @@
+---
+title: "K-Means Simulator Pitch"
+author: "Ralph Landon"
+date: "August 27, 2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## K-Means clustering
+
+The K-Means clustering algorithm is an algorithm used for clustering data points. It is a good algoritm, but it depends on knowing the correct number of centers, or clusters, to start with in order to get the best results.
+
+## The algorithm
+
+The algorithm starts k, the selected number of centers, randomly placed points, and then each data points is 'assigned' to the center to which it is closest, forming a temporary cluster.
+To proceed, the centers are moved to the center of their temporary clusters, and then the process is repeated.
+
+## Non-deterministic
+
+Due to the fact that the algorithm starts with randomized points, it is non-deterministic. Running the algorithm on the same data set, with the same parameters, can result in different clustering.
+```{r}
+set.seed(114)
+df <- data.frame(x=runif(50), y=runif(50))
+set.seed(1)
+par(mfrow=c(1,2))
+df$clust <- kmeans(df,3)$cluster
+plot(df$x, df$y, col=df$clust, pch=19, xlab="x", ylab="y")
+set.seed(10)
+df$clust <- kmeans(df,3)$cluster
+plot(df$x,df$y, col=df$clust, pch=19, xlab="x", ylab="y")
+```
+
+## K-Means Simulation
+
+My simulator allows you to create a random set of data points, which is customizable with the use of the panel for specifing the generators parameters.
+Once generated, you can set the number of centers for the k-means algorithm and run it to see the results.  You can re-run the algorithm without changing the data points to see how different results can often be obtained.
+
+The simulator can be found at <a href="https://ralph7c2.shinyapps.io/k-means_simulator/">K-Means Simulator</a>

@@ -1,0 +1,8 @@
+name: Publish Document
+title:
+account: rpubs
+server: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/302242/c17150398059482d8833b5f5d00a6e56
+bundleId: https://api.rpubs.com/api/v1/document/302242/c17150398059482d8833b5f5d00a6e56
+url: http://rpubs.com/Ralph7c2/302242
+when: 1503858559.33022
